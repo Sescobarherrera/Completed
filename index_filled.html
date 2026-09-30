@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Power BI</title>
+  <meta name="description" content="Portafolio profesional de Analista de Datos especializado en Power BI, modelado de datos y visualización." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== VARIABLES ========== */
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #059669;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+      --transition: all 0.25s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== HEADER / NAV ========== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      color: white !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      color: var(--text-light);
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--primary);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto;
+      display: block;
+      background: #eef2ff;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 5px solid white;
+      background: #eef2ff;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 1.5;
+      padding: 22px;
+      box-sizing: border-box;
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto;
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    /* ========== ABOUT ========== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .about-info {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .about-info h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-item span:first-child {
+      color: var(--text-light);
+    }
+
+    .info-item span:last-child {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    /* ========== SKILLS ========== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .skill-level {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ========== PROJECTS ========== */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project-category {
+      margin-top: 28px;
+    }
+
+    .projects-toc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px auto 24px;
+      max-width: 700px;
+    }
+
+    .projects-toc a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #f8fafc;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .projects-toc a:hover {
+      background: #e0e7ff;
+      border-color: #c7d2fe;
+      color: var(--accent);
+    }
+
+    .category-title {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .projects-tabs {
+      border: 1px solid var(--border);
+      border-radius: 16px 16px 12px 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .tabs-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 12px 0;
+      background: linear-gradient(#f8fafc, #eef2ff);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-button {
+      position: relative;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: #e5e7eb;
+      color: var(--text-light);
+      padding: 12px 18px 11px;
+      border-radius: 10px 10px 0 0;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .tab-button:hover {
+      background: #dbeafe;
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .tab-button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .tab-button.active {
+      background: white;
+      color: var(--primary);
+      border-color: var(--border);
+      box-shadow: 0 -2px 0 var(--accent) inset, 0 2px 0 rgba(37, 99, 235, 0.08);
+    }
+
+    .tab-button.active::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: -1px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #60a5fa);
+      border-radius: 999px 999px 0 0;
+    }
+
+    .tab-panel {
+      display: none;
+      background: white;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .project-card {
+      background: white;
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: none;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      box-shadow: none;
+    }
+
+    .project-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-header h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      background: #eff6ff;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .project-desc {
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .project-insights {
+      margin-top: 12px;
+    }
+
+    .project-insights li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .project-insights li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .project-body {
+      padding: 24px 32px;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .screenshot {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: var(--transition);
+      background: #f1f5f9;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .screenshot:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow);
+    }
+
+    .screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .screenshot img:not([src]) {
+      display: none;
+    }
+
+    .screenshot img[src] + span {
+      display: none;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .publish-note {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #f0fdf4;
+      border-left: 3px solid var(--success);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .publish-note strong {
+      color: var(--success);
+    }
+
+    /* ========== EDUCATION ========== */
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .org {
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .date {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .course-dropdown {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f9fbff, #f3f7ff);
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .course-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px 12px 42px;
+      font-weight: 700;
+      color: var(--primary);
+      background: linear-gradient(180deg, #eef4ff, #ebf2ff);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .course-dropdown summary::before {
+      content: '▾';
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+
+    .course-dropdown[open] summary::before {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .course-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .course-dropdown[open] summary {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .course-dropdown summary:hover {
+      background: #e0e7ff;
+    }
+
+    .course-list {
+      margin: 0;
+      padding: 12px 18px 14px 34px;
+      color: var(--text);
+    }
+
+    .course-list li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-section {
+      background: #233776;
+      color: #363271;
+    }
+
+    .contact-section .section-title {
+      color: #f3e4e0;
+    }
+
+    .contact-section .section-subtitle {
+      color: #afb1ea;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid rgba(230, 235, 241, 0.15);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 18px 30px rgba(78, 80, 87, 0.25);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      background: rgba(227, 230, 235, 0.98);
+    }
+
+    .contact-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-card a {
+      color: #3b3576;
+      font-size: 0.95rem;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0c1222;
+      color: #94a3b8;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #93c5fd;
+    }
+
+    /* ========== LIGHTBOX ========== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-photo {
+        order: -1;
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 16px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .project-header,
+      .project-body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+
+  
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <nav class="container">
+      <a href="#inicio" class="logo">Portafolio - IIN 2002 Analítica y Power BI</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <!-- <li><a href="#sobre-mi">Sobre mí</a></li> -->
+        <li><a href="#education">Educación</a></li>
+        <!-- <li><a href="#habilidades">Habilidades</a></li> -->
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <!-- CAMBIAR: Nombre completo -->
+        <h1>Enrique Escobar</h1>
+        <!-- CAMBIAR: Título profesional -->
+        <p class="subtitle">Estudiante de Ingenieria Industrial</p>
+        <!-- CAMBIAR: Descripción corta -->
+        <p>
+          Estoy cursando la materia de Analítica y Power BI en la Universidad San Francisco de Quito. Me interesa el análisis de datos y la visualización de información para la toma de decisiones.
+        </p>
+        <div class="hero-buttons">
+          <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+          <!-- CAMBIAR: Link a LinkedIn
+          <a href="https://linkedin.com/in/<YOUR_LINKEDIN_USERNAME>" target="_blank" class="btn btn-outline">LinkedIn</a>
+          -->
+          <!-- CAMBIAR: Link a CV (PDF) si lo tienes 
+          <a href="CV.pdf" class="btn btn-outline">Descargar CV</a>
+          -->
+        </div>
+      </div>
+      <div>
+        <!-- CAMBIAR: Foto profesional -->
+        <div>
+        <img 
+          src="IMG_0279.jpeg" 
+          alt="Profile photo"
+          class="hero-photo"
+        />
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE MÍ ========== -->
+  <!--
+  <section id="sobre-mi">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <p class="section-subtitle">Un poco más sobre mi perfil y lo que busco</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Soy un analista de datos con formación sólida en Power BI y analítica. 
+            Durante mi formación desarrollé proyectos reales donde apliqué desde la 
+            extracción y limpieza de datos hasta la creación de dashboards interactivos 
+            orientados a la toma de decisiones.
+          </p>
+          <p>
+            Me especializo en modelado de datos, DAX y diseño de reportes claros y 
+            accionables. Busco una oportunidad donde pueda aportar valor desde el 
+            primer día y seguir creciendo como profesional de datos.
+          </p>
+          <p>
+            Me caracterizo por ser organizada, curiosa y orientada a resultados. 
+            Disfruto transformar datos complejos en historias comprensibles para 
+            stakeholders de negocio.
+          </p>
+        </div>
+
+        <div class="about-info">
+          <h3>Información rápida</h3>
+          <div class="info-item">
+            <span>Ubicación</span>
+            <span>Ciudad, País</span>
+          </div>
+          <div class="info-item">
+            <span>Disponibilidad</span>
+            <span>Inmediata</span>
+          </div>
+          <div class="info-item">
+            <span>Modalidad</span>
+            <span>Remoto / Híbrido</span>
+          </div>
+          <div class="info-item">
+            <span>Idiomas</span>
+            <span>Español (nativo), Inglés (B2)</span>
+          </div>
+          <div class="info-item">
+            <span>Email</span>
+            <span>john.doe@email.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ========== EDUCATION ========== -->
+  <section id="education" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Educación</h2>
+      <p class="section-subtitle">Cursos y Certificaciones relevantes</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Cursos y Certificaciones</h3>
+          <details class="course-dropdown">
+            <summary>Power BI</summary>
+            <ul class="course-list">
+              <li><a href="https://www.coursera.org/account/accomplishments/verify/ZJ8H32P3MBMD" target="_blank">Introducción a Power BI | Datacamp | Aug 2026</a></li>
+            </ul>
+          </details>
+          <details class="course-dropdown">
+            <summary>Excel</summary>
+            <ul class="course-list">
+              <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/cb5a90921d0471b10101e8e1108370e1cd907f04?raw=1" target="_blank">Introduction to Excel | Datacamp | Aug 2026</a></li>
+            </ul>
+          </details>
+          <details class="course-dropdown">
+            <summary>Otros</summary>
+            <ul class="course-list">
+              <li><a href="https://example.com/sql-business-intelligence" target="_blank">SQL for Business Intelligence | Microsoft | Aug 2026</a></li>
+              <li><a href="https://example.com/python-analytics" target="_blank">Python for Analytics | Datacamp | Aug 2026</a></li>
+              <li><a href="https://example.com/data-visualization-dashboard-design" target="_blank">Data Visualization and Dashboard Design | Datacamp | Aug 2026</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ========== HABILIDADES ==========
+  <section id="habilidades" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Habilidades técnicas</h2>
+      <p class="section-subtitle">Herramientas y competencias que domino</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h4>Power BI</h4>
+          <p class="skill-level">Desktop & Service</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🧮</div>
+          <h4>DAX</h4>
+          <p class="skill-level">Medidas & Columnas</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔄</div>
+          <h4>Power Query</h4>
+          <p class="skill-level">Transformación de datos</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🗂️</div>
+          <h4>Modelado de datos</h4>
+          <p class="skill-level">Star Schema</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📈</div>
+          <h4>Visualización</h4>
+          <p class="skill-level">Storytelling</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📑</div>
+          <h4>Excel</h4>
+          <p class="skill-level">Avanzado</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🗃️</div>
+          <h4>SQL</h4>
+          <p class="skill-level">Consultas básicas</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">☁️</div>
+          <h4>Power BI Service</h4>
+          <p class="skill-level">Publicación & Sharing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ========== PROYECTOS ========== -->
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Proyectos</h2>
+
+      <nav class="projects-toc" aria-label="Tabla de contenidos de proyectos">
+        <a href="#powerbi-projects">Proyectos de Power BI</a>
+        <a href="#excel-projects">Proyectos de Excel</a>
+      </nav>
+
+      <div class="projects-grid">
+        <div class="project-category" id="powerbi-projects">
+          <h3 class="category-title">Proyectos de Power BI</h3>
+          <div class="projects-tabs" data-group="powerbi">
+            <div class="tabs-header" role="tablist" aria-label="Proyectos de Power BI">
+              <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="powerbi-project-1" id="powerbi-tab-1" data-tab="powerbi-project-1">
+                Proyecto 1
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="powerbi-project-2" id="powerbi-tab-2" data-tab="powerbi-project-2">
+                Proyecto 2
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="powerbi-project-1" role="tabpanel" aria-labelledby="powerbi-tab-1">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Análisis de Ventas Retail 2024</h3>
+                  <div class="project-meta">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">Modelado</span>
+                  </div>
+                  <p class="project-desc">
+                    Dashboard interactivo para analizar el desempeño de ventas de una cadena retail. 
+                    Incluye KPIs de ingresos, unidades vendidas, margen y comparativas por región, 
+                    categoría y periodo.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Identificación de las 3 regiones con mayor crecimiento interanual</li>
+                    <li>Análisis de estacionalidad y productos top por categoría</li>
+                    <li>Modelo de datos en estrella con 5 tablas de hechos y dimensiones</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="Dashboard.jpeg"
+                      alt="Vista general del dashboard de ventas" />
+                      <span>Captura 1 – Vista general</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="Dashboard.jpeg"
+                      alt="Análisis de ventas por región" />
+                      <span>Captura 2 – Análisis por región</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del dashboard en Power BI Service -->
+                    <a href="https://app.powerbi.com/discover/gallery/653426d8-503a-4a10-8a02-71854968d73a?experience=power-bi" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn btn-primary">
+                      Ver Dashboard Interactivo
+                    </a>
+                    <!-- CAMBIAR: Link de descarga del archivo .pbix -->
+                    <a href="MetalurgicaAndina_CSuarez_Mar26.pbix copy" download="MetalurgicaAndina_CSuarez_Mar26.pbix copy" class="btn btn-outline">Descargar .pbix</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de Publish to Web si deseas dar más contexto -->
+                    <strong>Publish to Web:</strong> Este dashboard fue publicado con la función 
+                    “Publish to Web” de Power BI Service. Cualquier persona puede abrirlo e 
+                    interactuar sin necesidad de licencia.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="tab-panel" id="powerbi-project-2" role="tabpanel" aria-labelledby="powerbi-tab-2">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Dashboard de Recursos Humanos – Rotación y Clima</h3>
+                  <div class="project-meta">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Storytelling</span>
+                  </div>
+                  <p class="project-desc">
+                    Reporte orientado a la dirección de RR.HH. para monitorear indicadores de 
+                    rotación, ausentismo y resultados de encuestas de clima laboral.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Cálculo de tasa de rotación mensual y anual con DAX</li>
+                    <li>Segmentación por área, antigüedad y motivo de salida</li>
+                    <li>Diseño enfocado en insights accionables para managers</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="12.jpeg"
+                      alt="Indicadores clave del dashboard de recursos humanos" />
+                      <span>Captura 1 – KPIs principales</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="12.jpeg"
+                      alt="Análisis de rotación de personal" />
+                      <span>Captura 2 – Análisis de rotación</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del dashboard en Power BI Service -->
+                    <a href="https://app.powerbi.com/discover/gallery/653426d8-503a-4a10-8a02-71854968d73a?experience=power-bi" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn btn-primary">
+                      Ver Dashboard Interactivo
+                    </a>
+                    <!-- CAMBIAR: Link de descarga del archivo .pbix -->
+                    <a href="MetalurgicaAndina_CSuarez_Mar26.pbix copy" download="MetalurgicaAndina_CSuarez_Mar26.pbix copy" class="btn btn-outline">Descargar .pbix</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de Publish to Web si deseas dar más contexto -->
+                    <strong>Publish to Web:</strong> Este dashboard fue publicado con la función 
+                    “Publish to Web” de Power BI Service. Cualquier persona puede abrirlo e 
+                    interactuar sin necesidad de licencia.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-category" id="excel-projects">
+          <h3 class="category-title">Proyectos de Excel</h3>
+          <div class="projects-tabs" data-group="excel">
+            <div class="tabs-header" role="tablist" aria-label="Proyectos de Excel">
+              <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="excel-project-1" id="excel-tab-1" data-tab="excel-project-1">
+                Proyecto 1
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="excel-project-2" id="excel-tab-2" data-tab="excel-project-2">
+                Proyecto 2
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="excel-project-1" role="tabpanel" aria-labelledby="excel-tab-1">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Control Financiero Mensual</h3>
+                  <div class="project-meta">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Tablas dinámicas</span>
+                    <span class="tag">Dashboard</span>
+                  </div>
+                  <p class="project-desc">
+                    Dashboard de seguimiento financiero mensual con indicadores de ingresos, gastos, 
+                    variaciones y análisis por categoría.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Monitoreo del flujo de caja por mes y categoría</li>
+                    <li>Tablas dinámicas para comparación histórica</li>
+                    <li>Indicadores clave para decisiones de presupuesto</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
+                      alt="Resumen del control financiero" />
+                      <span>Captura 1 – Resumen financiero</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
+                      alt="Análisis financiero por categoría" />
+                      <span>Captura 2 – Análisis por categoría</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
+                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
+                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
+                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
+                    <strong>Excel:</strong> Plantilla creada para el seguimiento operativo y financiero. 
+                    Diseñada para facilitar análisis rápidos y decisiones basadas en datos.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="tab-panel" id="excel-project-2" role="tabpanel" aria-labelledby="excel-tab-2">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Reporte de Operación y KPI</h3>
+                  <div class="project-meta">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Fórmulas</span>
+                    <span class="tag">Visualización</span>
+                  </div>
+                  <p class="project-desc">
+                    Panel operativo para la revisión de indicadores de productividad, tiempos, 
+                    cumplimiento y rendimiento por área.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Seguimiento de KPIs por turno y equipo</li>
+                    <li>Cálculos automatizados con fórmulas avanzadas</li>
+                    <li>Visualización útil para reuniones y liderazgo</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="2.jpeg"
+                      alt="Indicador principal del reporte operativo" />
+                      <span>Captura 1 – KPI principal</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="2.jpeg"
+                      alt="Rendimiento por equipo" />
+                      <span>Captura 2 – Rendimiento por equipo</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
+                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
+                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
+                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
+                    <strong>Excel:</strong> Presentación operativa diseñada para decisiones rápidas 
+                    con indicadores relevantes y comparación por tiempos.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-subtitle">¿Te interesa mi perfil? Estoy disponible para conversar.</p>
+
+      <div class="contact-grid">
+        <!-- CAMBIAR: Tus datos de contacto -->
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <h4>Email</h4>
+          <a href="mailto:john.doe@email.com">john.doe@email.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">💼</div>
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/sescobarherrera" target="_blank">linkedin.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">📍</div>
+          <h4>Ubicación</h4>
+          <span>Ciudad, Ecuador</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <p>© 2026 John Doe · Portafolio de Analista de Datos</p>
+      <p style="margin-top: 6px; font-size: 0.85rem;">
+        Desarrollado con HTML, CSS y JavaScript por Enrique Escobar
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Cerrar">×</button>
+    <img src="" alt="Captura ampliada" id="lightboxImg" />
+  </div>
+
+  <script>
+    // Menú móvil
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Header con sombra al hacer scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Cambio de pestañas de proyectos por grupo
+    document.querySelectorAll('.projects-tabs').forEach((tabSet) => {
+      const tabButtons = tabSet.querySelectorAll('.tab-button');
+      const tabPanels = tabSet.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((btn) => {
+            const isActive = btn === button;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', String(isActive));
+            btn.tabIndex = isActive ? 0 : -1;
+          });
+
+          tabPanels.forEach((panel) => {
+            const isActive = panel.id === target;
+            panel.classList.toggle('active', isActive);
+            panel.hidden = !isActive;
+          });
+        });
+      });
+
+      tabPanels.forEach((panel) => {
+        panel.hidden = !panel.classList.contains('active');
+      });
+    });
+
+    // Lightbox para capturas
+    function openLightbox(element) {
+      const img = element.querySelector('img');
+      if (!img || !img.getAttribute('src')?.trim()) return;
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Captura del dashboard';
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    // Cerrar lightbox con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
