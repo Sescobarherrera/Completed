@@ -990,15 +990,15 @@
         <div class="timeline-item">
           <h3>Cursos y Certificaciones</h3>
           <details class="course-dropdown">
-            <summary>Power BI</summary>
-            <ul class="course-list">
-              <li><a href="https://www.coursera.org/account/accomplishments/verify/ZJ8H32P3MBMD" target="_blank">Introducción a Power BI | Datacamp | Aug 2026</a></li>
-            </ul>
-          </details>
-          <details class="course-dropdown">
             <summary>Excel</summary>
             <ul class="course-list">
               <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/cb5a90921d0471b10101e8e1108370e1cd907f04?raw=1" target="_blank">Introduction to Excel | Datacamp | Aug 2026</a></li>
+            </ul>
+          </details>
+          <details class="course-dropdown">
+            <summary>Power BI</summary>
+            <ul class="course-list">
+              <li><a href="https://www.coursera.org/account/accomplishments/verify/ZJ8H32P3MBMD" target="_blank">Introducción a Power BI | Datacamp | Aug 2026</a></li>
             </ul>
           </details>
           <details class="course-dropdown">
@@ -1073,11 +1073,129 @@
       <h2 class="section-title">Proyectos</h2>
 
       <nav class="projects-toc" aria-label="Tabla de contenidos de proyectos">
-        <a href="#powerbi-projects">Proyectos de Power BI</a>
         <a href="#excel-projects">Proyectos de Excel</a>
+        <a href="#powerbi-projects">Proyectos de Power BI</a>
       </nav>
 
       <div class="projects-grid">
+        <div class="project-category" id="excel-projects">
+          <h3 class="category-title">Proyectos de Excel</h3>
+          <div class="projects-tabs" data-group="excel">
+            <div class="tabs-header" role="tablist" aria-label="Proyectos de Excel">
+              <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="excel-project-1" id="excel-tab-1" data-tab="excel-project-1">
+                Proyecto 1
+              </button>
+              <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="excel-project-2" id="excel-tab-2" data-tab="excel-project-2">
+                Proyecto 2
+              </button>
+            </div>
+
+            <div class="tab-panel active" id="excel-project-1" role="tabpanel" aria-labelledby="excel-tab-1">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Control Financiero Mensual</h3>
+                  <div class="project-meta">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Tablas dinámicas</span>
+                    <span class="tag">Dashboard</span>
+                  </div>
+                  <p class="project-desc">
+                    Dashboard de seguimiento financiero mensual con indicadores de ingresos, gastos, 
+                    variaciones y análisis por categoría.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Monitoreo del flujo de caja por mes y categoría</li>
+                    <li>Tablas dinámicas para comparación histórica</li>
+                    <li>Indicadores clave para decisiones de presupuesto</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
+                      alt="Resumen del control financiero" />
+                      <span>Captura 1 – Resumen financiero</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
+                      alt="Análisis financiero por categoría" />
+                      <span>Captura 2 – Análisis por categoría</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
+                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
+                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
+                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
+                    <strong>Excel:</strong> Plantilla creada para el seguimiento operativo y financiero. 
+                    Diseñada para facilitar análisis rápidos y decisiones basadas en datos.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="tab-panel" id="excel-project-2" role="tabpanel" aria-labelledby="excel-tab-2">
+              <article class="project-card">
+                <div class="project-header">
+                  <h3>Reporte de Operación y KPI</h3>
+                  <div class="project-meta">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Fórmulas</span>
+                    <span class="tag">Visualización</span>
+                  </div>
+                  <p class="project-desc">
+                    Panel operativo para la revisión de indicadores de productividad, tiempos, 
+                    cumplimiento y rendimiento por área.
+                  </p>
+                  <ul class="project-insights">
+                    <li>Seguimiento de KPIs por turno y equipo</li>
+                    <li>Cálculos automatizados con fórmulas avanzadas</li>
+                    <li>Visualización útil para reuniones y liderazgo</li>
+                  </ul>
+                </div>
+
+                <div class="project-body">
+                  <div class="screenshots">
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="2.jpeg"
+                      alt="Indicador principal del reporte operativo" />
+                      <span>Captura 1 – KPI principal</span>
+                    </div>
+                    <div class="screenshot" onclick="openLightbox(this)">
+                      <img 
+                      src="2.jpeg"
+                      alt="Rendimiento por equipo" />
+                      <span>Captura 2 – Rendimiento por equipo</span>
+                    </div>
+                  </div>
+
+                  <div class="project-actions">
+                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
+                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
+                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
+                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
+                  </div>
+
+                  <p class="publish-note">
+                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
+                    <strong>Excel:</strong> Presentación operativa diseñada para decisiones rápidas 
+                    con indicadores relevantes y comparación por tiempos.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
         <div class="project-category" id="powerbi-projects">
           <h3 class="category-title">Proyectos de Power BI</h3>
           <div class="projects-tabs" data-group="powerbi">
@@ -1203,124 +1321,6 @@
                     <strong>Publish to Web:</strong> Este dashboard fue publicado con la función 
                     “Publish to Web” de Power BI Service. Cualquier persona puede abrirlo e 
                     interactuar sin necesidad de licencia.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-category" id="excel-projects">
-          <h3 class="category-title">Proyectos de Excel</h3>
-          <div class="projects-tabs" data-group="excel">
-            <div class="tabs-header" role="tablist" aria-label="Proyectos de Excel">
-              <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="excel-project-1" id="excel-tab-1" data-tab="excel-project-1">
-                Proyecto 1
-              </button>
-              <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="excel-project-2" id="excel-tab-2" data-tab="excel-project-2">
-                Proyecto 2
-              </button>
-            </div>
-
-            <div class="tab-panel active" id="excel-project-1" role="tabpanel" aria-labelledby="excel-tab-1">
-              <article class="project-card">
-                <div class="project-header">
-                  <h3>Control Financiero Mensual</h3>
-                  <div class="project-meta">
-                    <span class="tag">Excel</span>
-                    <span class="tag">Tablas dinámicas</span>
-                    <span class="tag">Dashboard</span>
-                  </div>
-                  <p class="project-desc">
-                    Dashboard de seguimiento financiero mensual con indicadores de ingresos, gastos, 
-                    variaciones y análisis por categoría.
-                  </p>
-                  <ul class="project-insights">
-                    <li>Monitoreo del flujo de caja por mes y categoría</li>
-                    <li>Tablas dinámicas para comparación histórica</li>
-                    <li>Indicadores clave para decisiones de presupuesto</li>
-                  </ul>
-                </div>
-
-                <div class="project-body">
-                  <div class="screenshots">
-                    <div class="screenshot" onclick="openLightbox(this)">
-                      <img 
-                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
-                      alt="Resumen del control financiero" />
-                      <span>Captura 1 – Resumen financiero</span>
-                    </div>
-                    <div class="screenshot" onclick="openLightbox(this)">
-                      <img 
-                      src="WhatsApp Image 2026-09-30 at 12.52.19.jpeg"
-                      alt="Análisis financiero por categoría" />
-                      <span>Captura 2 – Análisis por categoría</span>
-                    </div>
-                  </div>
-
-                  <div class="project-actions">
-                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
-                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
-                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
-                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
-                  </div>
-
-                  <p class="publish-note">
-                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
-                    <strong>Excel:</strong> Plantilla creada para el seguimiento operativo y financiero. 
-                    Diseñada para facilitar análisis rápidos y decisiones basadas en datos.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <div class="tab-panel" id="excel-project-2" role="tabpanel" aria-labelledby="excel-tab-2">
-              <article class="project-card">
-                <div class="project-header">
-                  <h3>Reporte de Operación y KPI</h3>
-                  <div class="project-meta">
-                    <span class="tag">Excel</span>
-                    <span class="tag">Fórmulas</span>
-                    <span class="tag">Visualización</span>
-                  </div>
-                  <p class="project-desc">
-                    Panel operativo para la revisión de indicadores de productividad, tiempos, 
-                    cumplimiento y rendimiento por área.
-                  </p>
-                  <ul class="project-insights">
-                    <li>Seguimiento de KPIs por turno y equipo</li>
-                    <li>Cálculos automatizados con fórmulas avanzadas</li>
-                    <li>Visualización útil para reuniones y liderazgo</li>
-                  </ul>
-                </div>
-
-                <div class="project-body">
-                  <div class="screenshots">
-                    <div class="screenshot" onclick="openLightbox(this)">
-                      <img 
-                      src="2.jpeg"
-                      alt="Indicador principal del reporte operativo" />
-                      <span>Captura 1 – KPI principal</span>
-                    </div>
-                    <div class="screenshot" onclick="openLightbox(this)">
-                      <img 
-                      src="2.jpeg"
-                      alt="Rendimiento por equipo" />
-                      <span>Captura 2 – Rendimiento por equipo</span>
-                    </div>
-                  </div>
-
-                  <div class="project-actions">
-                    <!-- CAMBIAR: Link de visualización del archivo .xlsx -->
-                    <a href="https://estudusfqedu-my.sharepoint.com/:x:/g/personal/sescobar_estud_usfq_edu_ec/IQAsKS6fxPEdR4-rOzTNp8tFAVTDN111bs2H_xMn5szsqrs?e=SdD8FH" class="btn btn-primary">Ver archivo Excel</a>
-                    <!-- CAMBIAR: Link de descarga del archivo .xlsx -->
-                    <a href="Ex-SunOil-4D2L.xlsx" download="Ex-SunOil-4D2L.xlsx" class="btn btn-outline">Descargar .xlsx</a>
-                  </div>
-
-                  <p class="publish-note">
-                    <!-- CAMBIAR: Explicación de cada proyecto para que se entienda el contexto -->
-                    <strong>Excel:</strong> Presentación operativa diseñada para decisiones rápidas 
-                    con indicadores relevantes y comparación por tiempos.
                   </p>
                 </div>
               </article>
